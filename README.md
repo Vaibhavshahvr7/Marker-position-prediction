@@ -5,7 +5,7 @@ Repository of code and deep learning models to predict Marker position using IMU
 - Install [Miniconda](https://docs.anaconda.com/miniconda/) for your operating system 
 - Clone this repository
 - Navigate to the repository folder on your local machine
-- Install install the virtual environment:
+- Install the virtual environment:
 ```
 conda env create -f environment.yml
 conda activate Marker-position
@@ -17,7 +17,12 @@ conda activate Marker-position
 - Navigate to appropriate notebook on your browser
 
 ```
-jupyter notebooks
+jupyter notebook
+```
+
+Note: you may need to add your environment to the list of jupyter kernels:
+```
+python -m ipykernel install --user --name=Marker-position
 ```
 
 #### Toolboxes and/or Supporting Materials

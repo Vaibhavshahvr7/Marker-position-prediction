@@ -1,11 +1,11 @@
-# Marker-position-prediction
-Repository of code and deep learning models to predict Marker position using IMU data
+# ESMAC 2024
+ESMAC 2024 Pre-Conference Seminar on Python programming for Movement Sciences
 
 ## Installation
 - Install [Miniconda](https://docs.anaconda.com/miniconda/) for your operating system 
 - Clone this repository
 - Navigate to the repository folder on your local machine
-- Install install the virtual environment:
+- Install the virtual environment:
 ```
 conda env create -f environment.yml
 conda activate Marker-position
@@ -17,11 +17,20 @@ conda activate Marker-position
 - Navigate to appropriate notebook on your browser
 
 ```
+<<<<<<< HEAD
+jupyter notebook
+```
+
+Note: you may need to add your environment to the list of jupyter kernels:
+```
+python -m ipykernel install --user --name=Marker-position
+=======
+cd notebooks
 jupyter notebooks
+>>>>>>> parent of 8c69345 (Update README.md)
 ```
 
 #### Toolboxes and/or Supporting Materials
 
-- [biomechZoo](https://github.com/PhilD001/biomechZoo)
 - [Kinetics Toolkit](https://kineticstoolkit.uqam.ca/doc/index.php)
-
+- [biomechZoo](https://github.com/PhilD001/biomechZoo)

@@ -17,6 +17,7 @@ conda activate Marker-position
 Note: you may need to add your environment to the list of jupyter kernels:
 ```
 python -m ipykernel install --user --name=Marker-position
+```
 
 ## Running Jupyter notebooks
 - Navigate to the notebooks subfolder

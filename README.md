@@ -14,25 +14,16 @@ DOI: (Will be added)
 conda env create -f environment.yml
 conda activate Marker-position
 ```
+Note: you may need to add your environment to the list of jupyter kernels:
+```
+python -m ipykernel install --user --name=Marker-position
+```
 
 ## Running Jupyter notebooks
 - Navigate to the notebooks subfolder
 - Launch jupyter
 - Navigate to appropriate notebook on your browser
 
-```
-<<<<<<< HEAD
-jupyter notebook
-```
-
-Note: you may need to add your environment to the list of jupyter kernels:
-```
-python -m ipykernel install --user --name=Marker-position
-=======
-cd notebooks
-jupyter notebooks
->>>>>>> parent of 8c69345 (Update README.md)
-```
 
 #### Toolboxes and/or Supporting Materials
 

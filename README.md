@@ -24,6 +24,11 @@ python -m ipykernel install --user --name=Marker-position
 - Launch jupyter
 - Navigate to appropriate notebook on your browser
 
+## Step 1 : Prediction of Marker positions from raw IMU data and Visulizing predicted markers
+  --> Run Marker_Position_Prediction_Notebook.ipynb
+
+## Step 2 : Calculating Joint angles in MATLAB and Comparing against optical motion capture joint angles.
+ --> Run Kinematics_calculation.m
 
 #### Toolboxes and/or Supporting Materials
 

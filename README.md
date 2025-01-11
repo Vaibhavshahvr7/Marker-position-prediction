@@ -29,6 +29,7 @@ python -m ipykernel install --user --name=Marker-position
 
 ## Step 2 : Calculating Joint angles in MATLAB and Comparing against optical motion capture joint angles.
  --> Add biomechZoo toolbox in MATLAB search path.
+ 
  --> Run Kinematics_calculation.m
 
 #### Toolboxes and/or Supporting Materials

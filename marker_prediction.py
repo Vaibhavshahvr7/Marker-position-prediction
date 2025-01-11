@@ -12,6 +12,14 @@ import matplotlib.pyplot as plt
 lab=GL2G.data_processing()
 
 def convert_zoo2pickle(fld= os.path.join(".","data", "pp054", "imu"),ext='.zoo',subject_list = ['pp054']):
+    """
+    Converts IMU data from .zoo format to .pkl format and processes subject files.
+
+    Args:
+        fld (str): Folder path containing the data files.
+        ext (str): File extension to look for.
+        subject_list (list): List of subject identifiers to process.
+    """
     # Get the IMU variables from lab's variables zoo and store in 'variables'
     variables = lab.variables_zoo_IMU()
 
@@ -49,6 +57,17 @@ def convert_zoo2pickle(fld= os.path.join(".","data", "pp054", "imu"),ext='.zoo',
 
 # Function to process data for specific subjects and tasks, based on provided file list and variables
 def process_subject_data_task(subject_list, file_list, variable):
+    """
+    Processes and organizes data for specific subjects and tasks.
+
+    Args:
+        subject_list (list): List of subject identifiers.
+        file_list (list): List of file paths to process.
+        variable (list): List of variables to extract and process.
+
+    Returns:
+        dict: Processed data for each variable, organized by task and subject.
+    """
     # Initialize an empty dictionary 'data' to store processed data for each variable
     data = {}
 
@@ -100,6 +119,17 @@ def process_subject_data_task(subject_list, file_list, variable):
     return data
 
 def process_knee_data(data,sensor,Marker):
+    """
+    Extracts and processes knee-related data for specified sensors and markers.
+
+    Args:
+        data (dict): Input data containing sensor and marker information.
+        sensor (list): List of sensor names to process.
+        Marker (str): Marker name to extract.
+
+    Returns:
+        dict: Processed data containing accelerometer and gyroscope values.
+    """
 # Create an empty dictionary to store processed knee data
     knee_data = {}
 
@@ -134,6 +164,12 @@ def process_knee_data(data,sensor,Marker):
     return knee_d
 
 def extracting_markerwise_data(result_data):
+    """
+    Extracts and saves data for individual markers using associated sensors.
+
+    Args:
+        result_data (dict): Processed data containing sensor and marker information.
+    """
     # List of markers representing body landmarks
     markers = ['LASI', 'RASI', 'LPSI', 'RPSI', 'LTHI', 'LKNE', 'LTIB', 'LANK', 'LHEE', 'LTOE',
                'RTHI', 'RKNE', 'RTIB', 'RANK', 'RHEE', 'RTOE']
@@ -160,6 +196,15 @@ def extracting_markerwise_data(result_data):
 
 
 def loading_predition_data(fld = os.path.join(".","data", "pp054", "predicted_markers")):
+    """
+    Loads and processes marker position data for prediction.
+
+    Args:
+        fld (str): Folder path containing marker position pickle files.
+
+    Returns:
+        tuple: Processed LASI marker data and combined training data.
+    """
     # Path to the folder containing the marker position pickle files
 
     print('Loading IMU data for prediction')
@@ -363,7 +408,19 @@ def butter_lowpass_filter(data, cutoff=6, fs=200, order=4):
   return y
 
 def predict_marker_position(fld,participants,data_LASI, train, Select_subject):
-    import os
+    """
+    Predict the position of markers for participants using pre-trained models.
+
+    Parameters:
+    fld (str): Path to the folder where prediction data will be saved.
+    participants (list): List of participants.
+    data_LASI (dict): Dataset containing marker data.
+    train (function): Function used for training and testing data splits.
+    Select_subject (str): Placeholder for the subject being processed.
+
+    Returns:
+    dict: A dictionary containing marker predictions for each participant and subject.
+    """
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppress TensorFlow logging (0 = all logs, 1 = warnings, 2 = errors, 3 = fatal)
 
     # Static files initialization
@@ -413,6 +470,14 @@ def predict_marker_position(fld,participants,data_LASI, train, Select_subject):
     return parti_data
 
 def average_prediction(fld,parti_data,participants):
+    """
+    Compute and save the average predictions for each participant.
+
+    Parameters:
+    fld (str): Path to save averaged prediction data.
+    parti_data (dict): Dictionary containing marker predictions.
+    participants (list): List of participants.
+    """
 
     # Initialize an empty dictionary to store the mean data for each participant
     mean_data = {}
@@ -484,6 +549,9 @@ def average_prediction(fld,parti_data,participants):
 
 
 def visulize_predicted_data():
+    """
+    Visualize predicted marker data using Kinetics Toolkit.
+    """
     fld=os.path.join(".","data", "pp054", "predicted_markers","prediction_data")
     fl=lab.find_files(path=fld,ext='pkl')
     import pandas as pd

@@ -12,12 +12,12 @@ conda activate Marker-position
 ```
 
 ## Running Jupyter notebooks
-- Navigate to the notebooks subfolder
+- Navigate to the root of the repository
 - Launch jupyter
 - Navigate to appropriate notebook on your browser
 
 ```
-jupyter notebooks
+jupyter notebook
 ```
 
 #### Toolboxes and/or Supporting Materials

@@ -124,9 +124,9 @@ class data_processing(object):
                 print('Extracting complete', fn)
 
                 # Extract the file location and name for saving the pickle file
-                location = fn[0:np.char.rfind(fn, '/')]
-                filename = fn[np.char.rfind(fn, '/') + 1:-4]
-                filelocation = location + '/' + filename + '.pkl'
+                #location = os.path.splitext(filespec)#fn[0:np.char.rfind(fn, '/')]
+                filename = os.path.splitext(fn) #fn[np.char.rfind(fn, '/') + 1:-4]
+                filelocation = os.path.join(filename[0] + '.pkl')
 
                 # Print a message indicating the saving process and save the object as a pickle file
                 print('saving as pickle file to', filelocation)

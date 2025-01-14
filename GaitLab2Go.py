@@ -9,10 +9,10 @@ from scipy import interpolate
 from scipy.io import loadmat
 
 
+
 class data_processing(object):
-    """ GaitLab2Go Environment and Data Processing file:
-    Shah, V. R., Dixon, P. C. (2024). Gait Speed and Task-Specificity in Predicting Lower-Limb Kinematics: A Deep
-    Learning Approach Using Inertial Sensors.
+    """ GaitLab2Go Envrioment and Data Proccesing file:
+    Shah, V. R., Dixon, P. C. (2024). Gait Speed and Task-Specificity in Predicting Lower-Limb Kinematics: A Deep Learning Approach Using Inertial Sensors.
     """
     def __init__(self):
         self.enviroment='GaitLab2Go'
@@ -84,9 +84,9 @@ class data_processing(object):
                     variables.append(a1 + '_' + b1 + '_' + c1)
         return variables
 
+
     # This function converts data from a set of MATLAB files (in .mat format) to a Python dictionary
-    # The function takes three parameters: self, fl (list of file paths), and variables (list of variable names to
-    # extract)
+    # The function takes three parameters: self, fl (list of file paths), and variables (list of variable names to extract)
     def zoo2dictionary(self, fl, variables):
         # Iterate through each file in the provided file list (fl)
         for fn in fl:
@@ -132,6 +132,8 @@ class data_processing(object):
                 print('saving as pickle file to', filelocation)
                 pd.to_pickle(self, filelocation)
 
+
+
     # Define a function Normalized_gait that takes 'self' (assuming it's a method in a class) and 'A' as arguments
     def Normalized_gait(self, A):
         # Generate an array 'x' with values from 0 to the number of columns in A
@@ -165,7 +167,7 @@ class data_processing(object):
         return x
 
     def process_subject_files(self,subject_list, file_list):
-        """Iterate through each subject in the subject_list"""
+    # Iterate through each subject in the subject_list
         for sub in subject_list:
             # Use NumPy to filter file_list based on the presence of the subject in file names
             matching_files = file_list[np.char.find(file_list, sub) > 0]
@@ -183,14 +185,15 @@ class data_processing(object):
                 # Save the modified data back to the pickle file
                 pd.to_pickle(x, fn)
 
-    def trimdata(self, x, y, subject, window_size=40, stride=10):
+
+    def trimdata(self,x, y, Subject, window_size=40, stride=10):
         """
         Trim time series data into fixed-size windows with a specified stride.
 
         Parameters:
             x (numpy.ndarray): Input feature data of shape (num_samples, num_frames, num_features).
             y (numpy.ndarray): Output label data of shape (num_samples, num_frames, num_labels).
-            subject (numpy.ndarray): Array containing subject information for each sample.
+            Subject (numpy.ndarray): Array containing subject information for each sample.
             window_size (int): Size of the sliding window.
             stride (int): Stride between consecutive windows.
 
@@ -216,14 +219,14 @@ class data_processing(object):
                 # For the first window, directly assign the trimmed data
                 x_trim = x[:, start_frame[i]:end_frame[i], :]
                 y_trim = y[:, start_frame[i]:end_frame[i], :]
-                nSubject = subject
+                nSubject = Subject
             else:
                 # For subsequent windows, append the trimmed data
                 A = x[:, start_frame[i]:end_frame[i], :]
                 B = y[:, start_frame[i]:end_frame[i], :]
                 x_trim = np.append(x_trim, A, axis=0)
                 y_trim = np.append(y_trim, B, axis=0)
-                nSubject = np.append(nSubject, subject)
+                nSubject = np.append(nSubject, Subject)
 
         # Return the trimmed feature data, trimmed label data, and corresponding subjects
         return x_trim, y_trim, nSubject

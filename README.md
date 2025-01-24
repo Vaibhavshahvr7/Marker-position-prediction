@@ -1,7 +1,7 @@
 # Marker Position Prediction from raw IMU data
 As a part of the Article: Bridging The Gap Between Optical Motion Capture and Inertial Measurement Unit Technology: A Deep Learning Approach to Joint Kinematic Modeling
 
-Journal Name: Nature Biomedical Engineering
+Journal Name: IEEE Journal of Biomedical and Health informatics
 
 DOI: (Will be added)
 

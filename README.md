@@ -1,9 +1,5 @@
 # Marker Position Prediction from raw IMU data
-As a part of the Article: Bridging The Gap Between Optical Motion Capture and Inertial Measurement Unit Technology: A Deep Learning Approach to Joint Kinematic Modeling
-
-Journal Name: Journal of Biomechanics 
-
-DOI: (Will be added)
+Shah, V. R., & Dixon, P. C. (2025). Bridging the Methodological Gap Between Inertial Sensors and Optical Motion Capture: Deep Learning as the Path to Accurate Joint Kinematic Modelling Using Inertial Sensors. Sensors, 25(18), 5728. https://doi.org/10.3390/s25185728
 
 ## Installation
 - Install [Miniconda](https://docs.anaconda.com/miniconda/) for your operating system 
